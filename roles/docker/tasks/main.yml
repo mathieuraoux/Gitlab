@@ -1,0 +1,24 @@
+---
+- name: Uninstall docker
+  yum: name={{ item }} state=removed
+  with_items:
+   - docker
+   - docker-common
+   - docker-selinux
+   - docker-engine
+
+- name: Install prerequisites
+  yum: name={{ item }} state=present
+  with_items:
+   - yum-utils
+   - device-mapper-persistent-data
+   - lvm2
+
+- name: Add docker repository 
+  copy: 
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/
+    mode: 0644
+
+- name: Install docker
+  yum: name=docker-ce state=present update_cache=yes
