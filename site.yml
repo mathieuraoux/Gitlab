@@ -2,4 +2,5 @@
 
 - hosts: mediacenter
   roles:
-    - docker
+    - { role: docker, tags: [docker] }
+    - { role: pip, tags: [pip] }
