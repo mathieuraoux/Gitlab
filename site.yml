@@ -4,3 +4,4 @@
   roles:
     - { role: docker, tags: [docker] }
     - { role: pip, tags: [pip] }
+    - { role: gitlab, tags: [gitlab] }

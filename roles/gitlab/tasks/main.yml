@@ -1,0 +1,6 @@
+---
+
+- name: Pull gitlab docker
+  docker_container:
+    name: gitlab
+    image: gitlab/gitlab-ce
