@@ -21,4 +21,13 @@
     mode: 0644
 
 - name: Install docker
-  yum: name=docker-ce state=present update_cache=yes
+  yum: 
+    name: docker-ce
+    state: present
+    update_cache: yes
+
+- name: Enable and start docker
+  service: 
+    name: docker
+    state: started
+    enabled: yes
